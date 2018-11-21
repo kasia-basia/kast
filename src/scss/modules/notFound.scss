@@ -1,0 +1,20 @@
+.notFound-container{
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.notFound-title{
+  text-transform: uppercase;
+  color: $accent-dark;
+  font-size: 2em;
+  margin-bottom: .5em;
+}
+
+.notFound-text{
+  color: $accent-dark;
+  font-size: 1.5em;
+  margin: 0;
+}

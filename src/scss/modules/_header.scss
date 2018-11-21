@@ -1,0 +1,34 @@
+.header {
+  background-color: $primary;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.header a {
+  text-decoration: none;
+}
+
+.header-logo {
+  font-weight: bold;
+  letter-spacing: 8px;
+  color: $accent-dark;
+}
+
+.header-searchbar input {
+  padding: 15px 30px;
+  margin: 0;
+  border: 0;
+  width: 15vw;
+  border-radius: 30px;
+  outline: none;
+  color: $accent-dark;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.header-banner {
+  width: 100%;
+}
+

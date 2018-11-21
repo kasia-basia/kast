@@ -1,28 +1,31 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+// Imports
+import React, {Component} from 'react';
+import {HashRouter, Route, Link, Switch} from 'react-router-dom';
+import './App.scss';
+import axios from "axios";
 
+// Components
+import Header from './components/Header';
+import SearchResults from './components/SearchResults';
+import PodcastPage from './components/PodcastPage';
+import Home from './components/Home';
+
+// App Component
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <HashRouter>
+                <div>
+                    <Header search={this.searchTerm}/>
+                    <Switch>
+                        <Route exact path='/' component={Home}/>
+                        <Route path='/search/:query' component={SearchResults}/>
+                        <Route path='/podcast' component={PodcastPage} />
+                    </Switch>
+                </div>
+            </HashRouter>
+        );
+    }
 }
 
-export default App;
+export default App ;

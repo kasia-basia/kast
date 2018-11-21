@@ -1,0 +1,68 @@
+
+.searchRes-heading {
+  color: $accent-dark;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: normal;
+  margin-top: 2em;
+
+  span{
+    font-weight: bold;
+  }
+}
+.searchRes-list{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.searchRes-link{
+  text-decoration: none;
+}
+
+.searchRes-result{
+  padding: 20px;
+  box-sizing: border-box;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.searchRes-img{
+  width: 120px;
+  height: 120px;
+  box-shadow: 0 0 10px lightgrey ;
+}
+
+.searchRes-content{
+  padding-left: 20px;
+  color: $neutral;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.searchRes-title{
+  color: $accent-dark;
+  margin: 0;
+  position: relative;
+  display: inline-block;
+  font-size: 1.3em;
+
+  &:before {
+    content: '';
+    width: 0;
+    height: 3px;
+    position: absolute;
+    background-color: $primary;
+    top: 25px;
+    transition: 0.3s;
+  }
+  &:hover:before{
+    width: 100%;
+  }
+}
+.searchRes-genres{
+  color: $neutral;
+  font-size: 0.9em;
+}
