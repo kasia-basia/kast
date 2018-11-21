@@ -1,9 +1,38 @@
 .home-container{
   display: flex;
   justify-content: center;
+  text-transform: uppercase;
+
 }
 
 .home-header{
   margin-top: 1em;
   color: $accent-dark;
+  span{
+    font-weight: lighter;
+  }
+}
+
+/// Staff picks
+
+
+.home-sp-heading{
+  text-align: center;
+  color: $accent-dark;
+  //text-transform: uppercase;
+  //letter-spacing: 2px;
+  font-weight: lighter;
+}
+.home-sp-container{
+  background-color: pink;
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+
+}
+.home-sp-img{
+  width: 200px;
+}
+.home-sp-content{
+  background-color: tomato;
 }

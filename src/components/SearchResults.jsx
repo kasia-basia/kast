@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import axios from "axios";
 import NotFound from '../components/NotFound';
+import Loader from '../components/Loader'
 
 
 export default class SearchResults extends React.Component {
@@ -9,6 +10,7 @@ export default class SearchResults extends React.Component {
         super(props);
         this.state = {
             results: [],
+            loaded: false
         };
     }
 
@@ -20,6 +22,7 @@ export default class SearchResults extends React.Component {
             .then(res => {
                 this.setState({
                     results: res.data.results,
+                    loaded: true
                 });
                 console.log(res);
             })
@@ -28,10 +31,12 @@ export default class SearchResults extends React.Component {
     }
 
     render() {
-        if (!this.state.results[0]) {
-            return <NotFound/>;
+        
+        if (!this.state.loaded) {
+            return <Loader/>;
         }
 
+        
         let viewResults = this.state.results.map((e, i) =>
             <div key={i} className={'searchRes-result'}>
                 <div><img className={'searchRes-img'} alt='' src={e.artworkUrl100}/></div>
@@ -43,10 +48,11 @@ export default class SearchResults extends React.Component {
                 </div>
             </div>
         );
+       
 
         return (
             <div className={'container'}>
-                <h2 className={'searchRes-heading'}><span>Search results</span> for:{this.props.searched} </h2>
+                <h2 className={'searchRes-heading'}><span>Search results</span> for "{this.props.match.params.query}" </h2>
                 <div className={'searchRes-list'}>
                     {viewResults}
                 </div>

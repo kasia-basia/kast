@@ -16,8 +16,14 @@
   color: $accent-dark;
 }
 
+.header-form{
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
 .header-searchbar input {
-  padding: 15px 30px;
+  padding: 15px 40px;
   margin: 0;
   border: 0;
   width: 15vw;
@@ -28,7 +34,35 @@
   font-weight: bold;
 }
 
+.header-button{
+  background: none;
+  outline: none;
+  border: none;
+  color: $accent-dark;
+  font-size: 1.5em;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+  position: relative;
+
+  &:before{
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 3px;
+    background-color: #fff;
+    bottom: 0;
+    transition: 0.3s;
+  }
+
+  &:hover:before{
+    width: 75%;
+  }
+}
+
+
 .header-banner {
   width: 100%;
 }
+
 
