@@ -3,7 +3,6 @@ import Player from 'react-aplayer';
 import axios from 'axios';
 import Loader from '../components/Loader'
 
-
 export default class PodcastPage extends React.Component {
     constructor(props) {
         super(props);
@@ -14,20 +13,18 @@ export default class PodcastPage extends React.Component {
             feedTitle: '',
             feedAuthor: '',
             feedImg: '',
-            currEpisodeUrl: 'https://dts.podtrac.com/redirect.mp3/files.serialpodcast.org/sites/default/files/podcast/096761de819f2d602613d82865e0f9f4/serial-s03-e09.mp3',
-            loaded: false
-        }
+            currEpisodeUrl: '',
+            currEpisodeTitle: '',
+            loaded: false,
+        };
+        console.log('*');
     }
 
     playEpisode = (e) => {
         this.setState({
-            currEpisodeUrl: e.currentTarget.dataset.mp3
+            currEpisodeUrl: e.currentTarget.dataset.mp3,
+            currEpisodeTitle: e.currentTarget.dataset.title
         });
-        console.log('Hello', this.state.currEpisodeUrl);
-    };
-
-    initializePlayer = () => {
-
     };
 
     render() {
@@ -36,17 +33,16 @@ export default class PodcastPage extends React.Component {
             theme: '#4654D5',
             audio: [
                 {
-                    name: this.state.feedTitle,
+                    name: this.state.currEpisodeTitle,
                     artist: this.state.feedAuthor,
                     url: this.state.currEpisodeUrl,
                     cover: this.state.feedImg,
-                    theme: '#4654D5'
                 }
             ]
         };
 
         let episodes = this.state.episodes.map((e, i) => <div key={i}>
-            <h2 onClick={this.playEpisode} className="podcast-episode-title" data-mp3={e.enclosure.link}>{e.title}</h2>
+            <h2 onClick={this.playEpisode} className="podcast-episode-title" data-mp3={e.enclosure.link} data-title={e.title}>{e.title}</h2>
             <p className='podcast-episode-descr' dangerouslySetInnerHTML={{__html: `${e.description}`}}/>
         </div>);
 
@@ -77,12 +73,11 @@ export default class PodcastPage extends React.Component {
             )
         }
 
-
     }
 
     componentDidMount() {
         const feedUrl = this.props.location.search.substring(7);
-        console.log(feedUrl);
+        // console.log(feedUrl);
 
         const apiKey = 'xcqoxk9hj3p0x2siupzb2ko7tvl4codedtk4aiww';
         const rss2JsonApi = `https://api.rss2json.com/v1/api.json?api_key=${apiKey}&rss_url=${feedUrl}`;
@@ -95,20 +90,21 @@ export default class PodcastPage extends React.Component {
                     feedTitle: res.data.feed.title,
                     feedAuthor: res.data.feed.author,
                     feedImg: res.data.feed.image,
+                    currEpisodeUrl: res.data.items[0].enclosure.link,
+                    currEpisodeTitle: res.data.items[0].title,
                     loaded: true
                 });
 
                 console.log(res.data.items);
+                console.log(this.state.currEpisodeUrl);
                 // console.log(res.data.feed);
                 // console.log(this.state.feedImg);
-
             })
 
             .catch((er) => console.log(er));
     }
 
     componentDidUpdate() {
-        console.log('I updated');
-
+        console.log('I updated', this.state.currEpisodeUrl, this.state.currEpisodeTitle);
     }
 }

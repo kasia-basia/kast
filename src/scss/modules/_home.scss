@@ -23,16 +23,33 @@
   //letter-spacing: 2px;
   font-weight: lighter;
 }
+
 .home-sp-container{
-  background-color: pink;
   display: flex;
-  flex-direction: row;
-  width: 50%;
+  flex-wrap: wrap;
 
 }
-.home-sp-img{
-  width: 200px;
+
+.home-sp-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 20%;
+  box-sizing: border-box;
+
+  a {
+    text-decoration: none;
+  }
+
 }
-.home-sp-content{
-  background-color: tomato;
+
+.home-sp-img{
+  width: 90%;
+  margin: 0 5%;
+  box-shadow: 0 0 5px lightgrey;
+}
+
+.home-sp-title{
+  color: $accent-dark;
+  text-align: center;
 }

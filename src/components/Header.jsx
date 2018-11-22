@@ -1,7 +1,6 @@
 import React from 'react';
 import banner from '../img/header.png'
 import {Link} from 'react-router-dom'
-import {Redirect} from 'react-router'
 
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
@@ -44,3 +43,4 @@ export default class Header extends React.Component {
         )
     }
 }
+
