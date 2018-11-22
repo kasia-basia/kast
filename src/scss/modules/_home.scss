@@ -19,7 +19,7 @@
 .home-sp-heading{
   //text-align: center;
   color: $accent-dark;
-  margin-left: 10px;
+  margin-left: 15px;
   //text-transform: uppercase;
   //letter-spacing: 2px;
   font-weight: lighter;
@@ -36,6 +36,7 @@
   flex-direction: column;
   justify-content: center;
   width: 50%;
+  padding: 10px;
   box-sizing: border-box;
 
   a {

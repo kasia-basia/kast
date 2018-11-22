@@ -9,7 +9,8 @@ import SearchResults from './components/SearchResults';
 import PodcastPage from './components/PodcastPage';
 import Home from './components/Home';
 import ScrollToTop from './components/ScrollToTop';
-import Footer from './components/Footer'
+import Footer from './components/Footer';
+import Category from './components/Category'
 
 // App Component
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
                             <Route exact path='/' component={Home}/>
                             <Route path='/search/:query' component={SearchResults}/>
                             <Route path='/podcast' component={PodcastPage}/>
+                            <Route path='/category/:id' component={Category}/>
                         </Switch>
                         <Footer/>
                     </div>

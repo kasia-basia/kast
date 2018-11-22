@@ -40,12 +40,16 @@
   padding: 15px 40px;
   margin: 0;
   border: 0;
-  width: 15vw;
+  width: 40vw;
   border-radius: 30px;
   outline: none;
   color: $accent-dark;
   font-size: 15px;
   font-weight: bold;
+
+  @media #{$tablet}{
+    width: 15vw;
+  }
 }
 
 .header-button{
