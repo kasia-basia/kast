@@ -1,9 +1,12 @@
+$tablet: "screen and (min-width: 768px)";
+$desktop: "screen and (min-width: 1025px)";
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   box-sizing: border-box;
 }
+
 //
 //.row {
 //  margin-bottom: 20px;

@@ -3,14 +3,15 @@ import {Link} from 'react-router-dom';
 import axios from "axios";
 import NotFound from '../components/NotFound';
 import Loader from '../components/Loader'
-
+// import Error from '../components/Error'
 
 export default class SearchResults extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             results: [],
-            loaded: false
+            loaded: false,
+            // error : false
         };
     }
 
@@ -27,7 +28,11 @@ export default class SearchResults extends React.Component {
                 console.log(res);
             })
 
-            .catch((er) => console.log(er));
+            .catch((er) => {
+                this.setState({
+                    // error : true
+                })
+            });
     }
 
     render() {
@@ -36,6 +41,9 @@ export default class SearchResults extends React.Component {
             return <Loader/>;
         }
 
+        // if(this.state.error){
+        //     return <Error/>
+        // }
         
         let viewResults = this.state.results.map((e, i) =>
             <div key={i} className={'searchRes-result'}>

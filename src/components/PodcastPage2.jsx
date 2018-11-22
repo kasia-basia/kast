@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import APlayer from 'react-aplayer';
 import Loader from '../components/Loader';
-import ReactAudioPlayer from 'react-audio-player';
 
 export default class PodcastPage extends React.Component {
     constructor(props) {
@@ -29,9 +28,9 @@ export default class PodcastPage extends React.Component {
 
     };
 
-    handleScroll(){
-        console.log('Scrolled!');
-    }
+    onInit = ap => {
+        this.ap = ap;
+    };
 
     render() {
         let props = {
@@ -55,16 +54,9 @@ export default class PodcastPage extends React.Component {
         if (this.state.loaded) {
             return (
                 <div className={'container'}>
-                    <div className={'player-container'}>
-                        <div className={'player-content'}>
-                            <ReactAudioPlayer
-                                src={this.state.currEpisodeUrl}
-                                controls
-                                preload={'auto'}
-                            />
-                            <div className={'now-playing'}>Now playing: <br/> {this.state.currEpisodeTitle}</div>
-                        </div>
-                    </div>
+
+                    {/*<div style={{background: '#fff'}} id="aplayer" className="aplayer"/>*/}
+                    <div className={'podcast-player'}><APlayer {...props} onInit={this.onInit} /></div>
                     <div className={'podcast-info'}>
                         <div className={'podcast-img'}><img src={this.state.feedImg} alt=""/></div>
                         <div className={'podcast-info-content'}>
@@ -83,7 +75,6 @@ export default class PodcastPage extends React.Component {
                 </div>
             )
         }
-
         if (!this.state.loaded) {
             return (
                 <Loader/>
@@ -93,6 +84,8 @@ export default class PodcastPage extends React.Component {
 
     componentDidMount() {
         const feedUrl = this.props.location.search.substring(7);
+        // console.log(feedUrl);
+
         const apiKey = 'xcqoxk9hj3p0x2siupzb2ko7tvl4codedtk4aiww';
         const rss2JsonApi = `https://api.rss2json.com/v1/api.json?api_key=${apiKey}&rss_url=${feedUrl}`;
         axios.get(rss2JsonApi)
@@ -108,12 +101,17 @@ export default class PodcastPage extends React.Component {
                     currEpisodeTitle: res.data.items[0].title,
                     loaded: true
                 });
+
+                // console.log(res.data.items);
+                // console.log(this.state.currEpisodeUrl);
+                // console.log(res.data.feed);
+                // console.log(this.state.feedImg);
             })
 
             .catch((er) => console.log(er));
-
-        window.addEventListener('scroll', this.handleScroll);
     }
 
-
+    componentDidUpdate() {
+        console.log('I updated', this.state.currEpisodeUrl, this.state.currEpisodeTitle);
+    }
 }

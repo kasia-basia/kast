@@ -1,10 +1,19 @@
 .header {
   background-color: $primary;
-  height: 90px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-direction: column;
+
+  @media #{$tablet}{
+    height: 90px;
+    flex-direction: row;
+  }
+
 }
+
+
 
 .header a {
   text-decoration: none;
@@ -20,6 +29,11 @@
   display: flex;
   align-items: center;
   position: relative;
+  margin-bottom: 20px;
+
+  @media #{$tablet}{
+    margin-bottom: 0;
+  }
 }
 
 .header-searchbar input {
