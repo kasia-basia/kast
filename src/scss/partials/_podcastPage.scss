@@ -83,6 +83,10 @@
   cursor: pointer;
   transition: 0.3s;
 
+  &:hover{
+    color: $primary;
+  }
+
   &:before {
     content: '';
     position: absolute;
@@ -93,10 +97,24 @@
     transition: 0.3s;
   }
 
-  &:hover:before{
-    height: 50px;
-    z-index: -1;
+  &:after {
+    content: url('../src/img/play.png');
+    position: absolute;
+    transform: scale(0.3);
+    right: 0;
+    top: -35px;
+    opacity: 0;
+    transition: 0.3s;
+
   }
+  &:hover:after{
+    opacity: 1;
+  }
+
+  //&:hover:before{
+  //  height: 50px;
+  //  z-index: -1;
+  //}
 
 }
 
@@ -128,7 +146,6 @@
     justify-content: flex-end;
     margin-bottom: 0;
   }
-
 
 
 }

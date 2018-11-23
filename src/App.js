@@ -8,10 +8,9 @@ import Header from './components/Header';
 import SearchResults from './components/SearchResults';
 import PodcastPage from './components/PodcastPage';
 import Home from './components/Home';
-import ScrollToTop from './components/ScrollToTop';
 import Footer from './components/Footer';
 import NotFound from "./components/NotFound";
-
+import ScrollToTop from './components/ScrollToTop';
 
 // App Component
 class App extends Component {

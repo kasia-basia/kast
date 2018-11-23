@@ -35,9 +35,6 @@ export default class BrowseCategory extends React.Component {
                     {categories}
                 </div>
             </div>
-
         )
     }
-
-
 }

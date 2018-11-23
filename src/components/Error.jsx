@@ -10,7 +10,6 @@ export default class Loader extends React.Component {
                 <h2 className={'error-heading'}>Ooops!</h2>
                 <h3 className={'error-subheading'}>Looks like something went wrong.</h3>
             </div>
-
         )
     }
 }
