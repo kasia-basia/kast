@@ -16,8 +16,9 @@ export default class SearchResults extends React.Component {
     }
 
     componentDidMount() {
-
-        const podcastApi = `https://itunes.apple.com/search?term=podcast&genreId=${this.props.match.params.id}`;
+        const podcastApi = this.props.match.url.includes('category')
+            ? `https://itunes.apple.com/search?term=podcast&genreId=${this.props.match.params.id}`
+            : `https://itunes.apple.com/search?term=${this.props.match.params.query}&media=podcast`;
 
         axios.get(podcastApi)
             .then(res => {

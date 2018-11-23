@@ -1,7 +1,22 @@
 .error-container{
-  height: 50vh;
+  height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  color: $accent-dark;
+}
+
+.error-heading{
+  margin-top: 0.4em;
+  margin-bottom: 0;
+  font-size: 30px;
+}
+
+.error-subheading{
+  font-size: 20px;
+}
+
+.error-img img{
+  width: 100px;
 }

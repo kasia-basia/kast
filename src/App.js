@@ -10,7 +10,8 @@ import PodcastPage from './components/PodcastPage';
 import Home from './components/Home';
 import ScrollToTop from './components/ScrollToTop';
 import Footer from './components/Footer';
-import Category from './components/Category'
+import NotFound from "./components/NotFound";
+
 
 // App Component
 class App extends Component {
@@ -24,7 +25,8 @@ class App extends Component {
                             <Route exact path='/' component={Home}/>
                             <Route path='/search/:query' component={SearchResults}/>
                             <Route path='/podcast' component={PodcastPage}/>
-                            <Route path='/category/:id' component={Category}/>
+                            <Route path='/category/:id' component={SearchResults}/>
+                            <Route component={NotFound}/>
                         </Switch>
                         <Footer/>
                     </div>

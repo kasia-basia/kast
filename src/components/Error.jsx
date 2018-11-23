@@ -1,17 +1,14 @@
 import React from 'react';
+import sad from '../img/sadFile.png'
 
 export default class Loader extends React.Component {
-    constructor(props) {
-        super(props);
-
-    }
 
     render() {
         return (
             <div className={'error-container'}>
+                <div className={'error-img'}><img src={sad} alt=""/></div>
                 <h2 className={'error-heading'}>Ooops!</h2>
-                <h3 className={'error-subheading'}>Looks like something went wrong. </h3>
-                <p className={'error-text'}> Sorry! </p>
+                <h3 className={'error-subheading'}>Looks like something went wrong.</h3>
             </div>
 
         )

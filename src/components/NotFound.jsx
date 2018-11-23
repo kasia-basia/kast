@@ -1,18 +1,19 @@
 import React from 'react';
+import sad from "../img/sadFile.png";
 
 export default class NotFound extends React.Component {
-    constructor(props) {
-        super(props);
-
-    }
 
     render() {
         return (
             <div className={'notFound-container'}>
-                <h2 className={'notFound-title'}>Not Found...</h2>
-                <p className={'notFound-text'}>Try searching for something else</p>
+                    <div className={'error-img'}><img src={sad} alt=""/></div>
+                    <h2 className={'notFound-title'}>
+                        { this.props.zeroResults ? 'NOTHING HERE...' : 'NOT FOUND'}
+                    </h2>
+                    <p className={'notFound-text'}>
+                        { this.props.zeroResults ? 'Maybe try searching for something else?' : 'This page does not exist'}
+                    </p>
             </div>
-
         )
     }
 }

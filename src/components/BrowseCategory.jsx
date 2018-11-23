@@ -3,35 +3,41 @@ import {Link} from "react-router-dom";
 
 export default class BrowseCategory extends React.Component {
 
-   render(){
-     return (
-         <div>
-             <h2 className={'home-sp-heading'}>Browse by category</h2>
+    categories = [
+        {id: 1301, name: 'Art'},
+        {id: 1402, name: 'Design'},
+        {id: 1303, name: 'Comedy'},
+        {id: 1304, name: 'Education'},
+        {id: 1305, name: 'Kids & Family'},
+        {id: 1307, name: 'Health'},
+        {id: 1309, name: 'TV & Film'},
+        {id: 1310, name: 'Music'},
+        {id: 1311, name: 'News & Politics'},
+        {id: 1315, name: 'Science & Medicine'},
+        {id: 1316, name: 'Sports & Recreation'},
+        {id: 1318, name: 'Technology'},
+        {id: 1321, name: 'Business'},
+        {id: 1323, name: 'Games & Hobbies'},
+        {id: 1324, name: 'Society & Culture'},
+        {id: 1325, name: 'Government & Organizations'},
+    ];
 
-             <div className={'category-container'}>
-             <Link to={'category/1301'} className={'category-link'}>Art</Link>
-             <Link to={'category/1406'} className={'category-link'}>Design</Link>
-             <Link to={'category/1303'} className={'category-link'}>Comedy</Link>
-             <Link to={'category/1304'} className={'category-link'}>Education</Link>
-             <Link to={'category/1305'} className={'category-link'}>Kids & Family</Link>
-             <Link to={'category/1307'} className={'category-link'}>Health</Link>
-             <Link to={'category/1309'} className={'category-link'}>TV & Film</Link>
-             <Link to={'category/1310'} className={'category-link'}>Music</Link>
-             <Link to={'category/1311'} className={'category-link'}>News & Politics</Link>
-             <Link to={'category/1314'} className={'category-link'}>Religion & Spirituality</Link>
-             <Link to={'category/1315'} className={'category-link'}>Science & Medicine</Link>
-             <Link to={'category/1316'} className={'category-link'}>Sports & Recreation</Link>
-             <Link to={'category/1318'} className={'category-link'}>Technology</Link>
-             <Link to={'category/1321'} className={'category-link'}>Business</Link>
-             <Link to={'category/1323'} className={'category-link'}>Games & Hobbies</Link>
-             <Link to={'category/1324'} className={'category-link'}>Society & Culture</Link>
-             <Link to={'category/1325'} className={'category-link'}>Government & Organizations</Link>
-             </div>
+    render() {
 
-         </div>
+        const categories = this.categories.map((e, i) => {
+            return <Link key={i} to={`category/${e.name}-${e.id}`} className={'category-link'}><span>{e.name}</span></Link>
+        });
 
-     )
-   }
+        return (
+            <div>
+                <h2 className={'home-sp-heading'}>Browse by category</h2>
+                <div className={'category-container'}>
+                    {categories}
+                </div>
+            </div>
+
+        )
+    }
 
 
- }
+}

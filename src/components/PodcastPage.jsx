@@ -24,22 +24,9 @@ export default class PodcastPage extends React.Component {
             currEpisodeUrl: e.currentTarget.dataset.mp3,
             currEpisodeTitle: e.currentTarget.dataset.title
         });
-
     };
 
     render() {
-        let props = {
-            theme: '#4654D5',
-            audio: [
-                {
-                    name: this.state.currEpisodeTitle,
-                    artist: this.state.feedAuthor,
-                    url: this.state.currEpisodeUrl,
-                    cover: this.state.feedImg,
-                }
-            ]
-        };
-
         let episodes = this.state.episodes.map((e, i) => <div key={i}>
             <h2 onClick={this.changeEpisode} className="podcast-episode-title" data-mp3={e.enclosure.link}
                 data-title={e.title}>{e.title}</h2>

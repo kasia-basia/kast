@@ -28,7 +28,6 @@
 .home-sp-container{
   display: flex;
   flex-wrap: wrap;
-
 }
 
 .home-sp-wrapper{
@@ -57,4 +56,21 @@
 .home-sp-title{
   color: $accent-dark;
   text-align: center;
+
+  span {
+    position: relative;
+
+    &:before {
+      content: '';
+      width: 0;
+      height: 3px;
+      position: absolute;
+      background-color: $primary;
+      top: 25px;
+      transition: 0.3s;
+    }
+    &:hover:before {
+      width: 100%;
+    }
+  }
 }

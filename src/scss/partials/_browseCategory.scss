@@ -1,0 +1,43 @@
+.category-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2em 0 4em;
+  align-items: center;
+
+  @media #{$tablet}{
+    flex-wrap: wrap;
+  }
+}
+
+.category-link {
+  width: 50%;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  color: $accent-dark;
+  margin: 10px 0;
+  font-size: 1.2em;
+  font-weight: bold;
+
+  @media #{$tablet}{
+    width: 25%;
+  }
+
+  span {
+    position: relative;
+
+    &:before {
+      content: '';
+      width: 0;
+      height: 3px;
+      position: absolute;
+      background-color: $primary;
+      top: 25px;
+      transition: 0.3s;
+    }
+    &:hover:before {
+      width: 100%;
+    }
+  }
+}
+
