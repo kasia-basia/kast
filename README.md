@@ -7,6 +7,6 @@ A responsive podcast app I designed and built with React, using iTunes API to fe
 Please note that this is a work in progress. My plans for this app include adding Firebase authentication, enabling the user to compose their own list of favourite podcasts and adding pagination in the episodes listing.
 
 ### Tools used: 
-Development: React, React Router, Sass, Axios 
+Development: React, React Router, Sass, Axios <br>
 Design: Affinity Designer
 
