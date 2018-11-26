@@ -1,4 +1,6 @@
 # KAST podcast app
+<img src='http://kasialach.pl/images/header2.png'/>
+
 
 ### Overview
 A responsive podcast app I designed and built with React, using iTunes API to fetch the podcast catalog. Another API is used to convert the received RSS feed into a JSON file, so that the episode details and mp3 files can be reached.
