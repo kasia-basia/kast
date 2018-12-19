@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import Loader from '../components/Loader';
+import Error from '../components/Error';
 import ReactAudioPlayer from 'react-audio-player';
-import Error from '../components/Error'
-import firebase from 'firebase'
+import ReadMore from '../components/ReadMore'
 
 export default class PodcastPage extends React.Component {
     constructor(props) {
@@ -30,10 +30,15 @@ export default class PodcastPage extends React.Component {
     };
 
     render() {
+        let paragraph = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum justo sem. Integer non ipsum dui. Curabitur efficitur, ipsum vitae tincidunt pulvinar, ex lorem ullamcorper magna, eu blandit erat magna vitae est. Aliquam vulputate purus eget auctor vulputate. Morbi neque erat, lobortis quis fermentum sed, ullamcorper vitae est. Cras tincidunt metus vitae quam varius faucibus. Nulla id placerat ante, ut rutrum elit. Fusce vel fermentum ante, quis maximus ante. Sed a purus quis nibh efficitur laoreet et nec nisi. Fusce rhoncus bibendum eros, et bibendum nunc gravida nec. Pellentesque viverra enim dolor, quis gravida nibh volutpat eget. Aliquam eleifend vehicula.'
         let episodes = this.state.episodes.map((e, i) => <div key={i}>
             <h2 onClick={this.changeEpisode} className="podcast-episode-title" data-mp3={e.enclosure.link}
                 data-title={e.title}>{e.title}</h2>
-            <p className='podcast-episode-descr' dangerouslySetInnerHTML={{__html: `${e.description}`}}/>
+
+            <ReadMore>
+                <p className='podcast-episode-descr' dangerouslySetInnerHTML={{__html: `${e.description}`}}/>
+            </ReadMore>
+            {/*<p className='podcast-episode-descr' dangerouslySetInnerHTML={{__html: `${e.description}`}}/>*/}
         </div>);
 
         if (this.state.error){

@@ -74,6 +74,8 @@
   @media #{$tablet}{
     width: 70%;
   }
+
+
 }
 
 .podcast-episode-title {
@@ -122,6 +124,7 @@
   a {
     color: $dark;
     text-decoration-color: $accent-dark;
+    outline: none;
   }
   strong {
     font-weight: normal;
@@ -129,6 +132,7 @@
   em {
     font-style: normal;
   }
+
 }
 
 // PLAYER
