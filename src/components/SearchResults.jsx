@@ -65,7 +65,7 @@ export default class SearchResults extends React.Component {
             ? `https://itunes.apple.com/search?term=podcast&genreId=${this.props.match.params.id.substr(-4)}`
             : `https://itunes.apple.com/search?term=${this.props.match.params.query}&media=podcast`;
 
-        axios.get(podcastApi)
+        axios.get(podcastApi, { headers: { 'crossDomain': true, 'Content-Type': 'application/json'}})
             .then(res => {
                 this.setState({
                     results: res.data.results,
@@ -76,7 +76,6 @@ export default class SearchResults extends React.Component {
 
             .catch((er) => {
                 console.log(er);
-                console.log('hello');
                 this.setState({
                     error: true
                 })
