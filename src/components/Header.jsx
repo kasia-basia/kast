@@ -30,7 +30,7 @@ export default class Header extends React.Component {
                     <Link to='/'><h1 className={'header-logo'}>KAST</h1></Link>
                     <div className={'header-searchbar'}>
                         <form className={'header-form'} action="">
-                            <FontAwesomeIcon style={{color: '#4654D5', position:'absolute', left: '15px'}}icon="search"/>
+                            <FontAwesomeIcon style={{color: '#4654D5', position:'absolute', left: '15px'}} icon="search"/>
                             <input onChange={this.handleInput} type="text"/>
                             <Link to={`/search/${this.state.q}`}>
                                 <button className={'header-button'}>GO</button>

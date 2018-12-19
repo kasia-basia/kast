@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import Loader from '../components/Loader';
 import ReactAudioPlayer from 'react-audio-player';
+import Error from '../components/Error'
+import firebase from 'firebase'
 
 export default class PodcastPage extends React.Component {
     constructor(props) {
@@ -16,6 +18,7 @@ export default class PodcastPage extends React.Component {
             currEpisodeUrl: '',
             currEpisodeTitle: '',
             loaded: false,
+            error: false
         };
     }
 
@@ -32,6 +35,14 @@ export default class PodcastPage extends React.Component {
                 data-title={e.title}>{e.title}</h2>
             <p className='podcast-episode-descr' dangerouslySetInnerHTML={{__html: `${e.description}`}}/>
         </div>);
+
+        if (this.state.error){
+            return <Error/>
+        }
+
+        if (!this.state.loaded) {
+            return <Loader/>
+        }
 
         if (this.state.loaded) {
             return (
@@ -58,7 +69,6 @@ export default class PodcastPage extends React.Component {
                         </div>
                     </div>
 
-
                     <h2 className={'podcast-heading'}>Recent <span>episodes</span></h2>
                     <div className="podcast-episodes-container">
                         {episodes}
@@ -67,19 +77,15 @@ export default class PodcastPage extends React.Component {
             )
         }
 
-        if (!this.state.loaded) {
-            return (
-                <Loader/>
-            )
-        }
+
     }
 
     componentDidMount() {
         const feedUrl = this.props.location.search.substring(7);
         const apiKey = 'xcqoxk9hj3p0x2siupzb2ko7tvl4codedtk4aiww';
         const rss2JsonApi = `https://api.rss2json.com/v1/api.json?api_key=${apiKey}&rss_url=${feedUrl}`;
-        axios.get(rss2JsonApi)
 
+        axios.get(rss2JsonApi)
             .then(res => {
                 this.setState({
                     episodes: res.data.items,
@@ -93,7 +99,12 @@ export default class PodcastPage extends React.Component {
                 });
             })
 
-            .catch((er) => console.log(er));
+            .catch((er) => {
+                this.setState({
+                    error: true
+                })
+            });
+
     }
 
 
