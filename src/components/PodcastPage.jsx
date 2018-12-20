@@ -3,7 +3,10 @@ import axios from 'axios';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
 import ReactAudioPlayer from 'react-audio-player';
-import ReadMore from '../components/ReadMore'
+import ReadMore from '../components/ReadMore';
+import Truncate from "react-truncate-html";
+import arrow from "../img/arrow.svg";
+
 
 export default class PodcastPage extends React.Component {
     constructor(props) {
@@ -35,9 +38,17 @@ export default class PodcastPage extends React.Component {
             <h2 onClick={this.changeEpisode} className="podcast-episode-title" data-mp3={e.enclosure.link}
                 data-title={e.title}>{e.title}</h2>
 
-            <ReadMore>
-                <p className='podcast-episode-descr' dangerouslySetInnerHTML={{__html: `${e.description}`}}/>
-            </ReadMore>
+            <ReadMore text={e.description}/>
+            {/*<Truncate lines={3}*/}
+                      {/*dangerouslySetInnerHTML={{*/}
+                          {/*__html: e.description*/}
+                      {/*}}>*/}
+            {/*</Truncate>*/}
+
+
+            {/*<ReadMore>*/}
+                {/*<p className='podcast-episode-descr' dangerouslySetInnerHTML={{__html: `${e.description}`}}/>*/}
+            {/*</ReadMore>*/}
             {/*<p className='podcast-episode-descr' dangerouslySetInnerHTML={{__html: `${e.description}`}}/>*/}
         </div>);
 
