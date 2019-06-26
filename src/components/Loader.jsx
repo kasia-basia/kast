@@ -1,17 +1,13 @@
-import React from 'react';
+import React from "react";
 
-export default class Loader extends React.Component {
+export const Loader = () => (
+  <div className={"loader-container"}>
+    <h2 className={"loader-text"}>Loading</h2>
+    <div className="lds-ripple">
+      <div />
+      <div />
+    </div>
+  </div>
+);
 
-    render() {
-        return (
-            <div className={'loader-container'}>
-                <h2 className={'loader-text'}>Loading</h2>
-                <div className="lds-ripple">
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-
-        )
-    }
-}
+export default Loader;
