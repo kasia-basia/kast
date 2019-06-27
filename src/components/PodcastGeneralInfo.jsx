@@ -1,4 +1,5 @@
 import React from "react";
+import T from "prop-types";
 
 export const PodcastGeneralInfo = ({ feedImg, feedTitle, feedAuthor, feedDescr }) => (
   <div className={"podcast-info"}>
@@ -12,5 +13,12 @@ export const PodcastGeneralInfo = ({ feedImg, feedTitle, feedAuthor, feedDescr }
     </div>
   </div>
 );
+
+PodcastGeneralInfo.propTypes = {
+    feedImg: T.string,
+    feedAuthor: T.string,
+    feedTitle: T.string,
+    feedDescr: T.string
+};
 
 export default PodcastGeneralInfo;

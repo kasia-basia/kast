@@ -54,9 +54,17 @@ export default class PodcastPage extends React.Component {
       const { currEpisodeTitle, currEpisodeUrl, feedImg, feedTitle, feedAuthor, feedDescr } = this.state;
       return (
         <>
-          <Player currEpisodeTitle={currEpisodeTitle} currEpisodeUrl={currEpisodeUrl} />
+          <Player
+              currEpisodeTitle={currEpisodeTitle}
+              currEpisodeUrl={currEpisodeUrl}
+          />
           <div className={"container"}>
-            <PodcastGeneralInfo feedImg={feedImg} feedTitle={feedTitle} feedAuthor={feedAuthor} feedDescr={feedDescr} />
+            <PodcastGeneralInfo
+                feedImg={feedImg}
+                feedTitle={feedTitle}
+                feedAuthor={feedAuthor}
+                feedDescr={feedDescr}
+            />
             <RecentEpisodes>{episodes}</RecentEpisodes>
           </div>
         </>
@@ -87,7 +95,7 @@ export default class PodcastPage extends React.Component {
 
       .catch(er => {
         this.setState({
-          error: true
+          error: er
         });
       });
   }

@@ -1,4 +1,5 @@
 import React from "react";
+import T from "prop-types";
 import FilePlayer from "react-player/lib/players/FilePlayer";
 import Duration from "./Duration";
 
@@ -11,6 +12,11 @@ export default class Player extends React.Component {
       duration: 0
     };
   }
+
+  static propTypes = {
+    currEpisodeTitle: T.string,
+    currEpisodeUrl: T.string
+  };
 
   onPlay = () => {
     this.setState({

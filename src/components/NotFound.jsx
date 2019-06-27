@@ -1,4 +1,5 @@
 import React from "react";
+import T from "prop-types";
 import sad from "../img/sadFile.png";
 
 export const NotFound = ({ zeroResults }) => (
@@ -12,5 +13,9 @@ export const NotFound = ({ zeroResults }) => (
     </p>
   </div>
 );
+
+NotFound.propTypes = {
+    zeroResults: T.bool
+};
 
 export default NotFound;
