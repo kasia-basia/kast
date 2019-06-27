@@ -3,11 +3,11 @@
   flex-direction: column;
   margin-top: 2em;
 
-  @media #{$tablet}{
+  @media #{$tablet} {
     flex-direction: row;
   }
 
-  @media #{$desktop}{
+  @media #{$desktop} {
     padding-right: 20em;
   }
 }
@@ -16,14 +16,13 @@
   margin: 0 auto;
 }
 .podcast-img img {
-    width: 90vw;
-    box-shadow: 0 0 5px lightgrey;
+  width: 90vw;
+  box-shadow: 0 0 5px lightgrey;
 
-  @media #{$tablet}{
-  width: 300px;
+  @media #{$tablet} {
+    width: 300px;
   }
-  @media #{$desktop}{
-
+  @media #{$desktop} {
   }
 }
 
@@ -32,7 +31,7 @@
   display: flex;
   flex-direction: column;
 
-  @media #{$tablet}{
+  @media #{$tablet} {
     margin-left: 2em;
   }
 }
@@ -59,11 +58,10 @@
     font-weight: lighter;
   }
 
-  @media #{$tablet}{
+  @media #{$tablet} {
     margin-top: 2em;
   }
 }
-
 
 // EPISODES
 .podcast-episodes-container {
@@ -71,11 +69,9 @@
   width: 100%;
   margin: 0 15px;
 
-  @media #{$tablet}{
+  @media #{$tablet} {
     width: 70%;
   }
-
-
 }
 
 .podcast-episode-title {
@@ -85,12 +81,12 @@
   cursor: pointer;
   transition: 0.3s;
 
-  &:hover{
+  &:hover {
     color: $primary;
   }
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     height: 2px;
     background-color: $primary;
@@ -100,16 +96,15 @@
   }
 
   &:after {
-    content: url('../src/img/play.png');
+    content: url("../src/img/play.png");
     position: absolute;
     transform: scale(0.3);
     right: 0;
     top: -35px;
     opacity: 0;
     transition: 0.3s;
-
   }
-  &:hover:after{
+  &:hover:after {
     opacity: 1;
   }
 
@@ -117,7 +112,6 @@
   //  height: 50px;
   //  z-index: -1;
   //}
-
 }
 
 .podcast-episode-descr {
@@ -132,43 +126,4 @@
   em {
     font-style: normal;
   }
-
 }
-
-// PLAYER
-
-.player-container {
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  margin-top: 1em;
-  position: sticky;
-  top:15px;
-  margin-bottom: 130px;
-
-  @media #{$desktop}{
-    justify-content: flex-end;
-    margin-bottom: 0;
-  }
-
-
-}
-
-.player-content {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  position: absolute;
-}
-
-.now-playing {
-  margin-top: 1em;
-  width: 300px;
-  color: $accent-dark;
-
-  span{
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-}
-

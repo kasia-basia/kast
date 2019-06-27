@@ -5,6 +5,7 @@ import Error from "./Error";
 import Episode from "./Episode";
 import PodcastGeneralInfo from "./PodcastGeneralInfo";
 import Player from "./Player";
+import RecentEpisodes from "./RecentEpisodes";
 
 export default class PodcastPage extends React.Component {
   constructor(props) {
@@ -52,14 +53,13 @@ export default class PodcastPage extends React.Component {
     if (this.state.loaded) {
       const { currEpisodeTitle, currEpisodeUrl, feedImg, feedTitle, feedAuthor, feedDescr } = this.state;
       return (
-        <div className={"container"}>
+        <>
           <Player currEpisodeTitle={currEpisodeTitle} currEpisodeUrl={currEpisodeUrl} />
-          <PodcastGeneralInfo feedImg={feedImg} feedTitle={feedTitle} feedAuthor={feedAuthor} feedDescr={feedDescr} />
-          <h2 className={"podcast-heading"}>
-            Recent <span>episodes</span>
-          </h2>
-          <div className="podcast-episodes-container">{episodes}</div>
-        </div>
+          <div className={"container"}>
+            <PodcastGeneralInfo feedImg={feedImg} feedTitle={feedTitle} feedAuthor={feedAuthor} feedDescr={feedDescr} />
+            <RecentEpisodes>{episodes}</RecentEpisodes>
+          </div>
+        </>
       );
     }
   }
@@ -68,6 +68,7 @@ export default class PodcastPage extends React.Component {
     const feedUrl = this.props.location.search.substring(7);
     const apiKey = "xcqoxk9hj3p0x2siupzb2ko7tvl4codedtk4aiww";
     const rss2JsonApi = `https://api.rss2json.com/v1/api.json?api_key=${apiKey}&rss_url=${feedUrl}`;
+    const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
 
     axios
       .get(rss2JsonApi)
