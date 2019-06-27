@@ -19,7 +19,7 @@ class App extends Component {
             <BrowserRouter>
                 <ScrollToTop>
                     <div>
-                        <Header search={this.searchTerm}/>
+                        <Header/>
                         <Switch>
                             <Route exact path='/' component={Home}/>
                             <Route path='/search/:query' component={SearchResults}/>

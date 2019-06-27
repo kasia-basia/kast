@@ -1,4 +1,5 @@
 import React from "react";
+import T from "prop-types";
 import { Link } from "react-router-dom";
 
 const SearchResult = ({ artwork, url, collection, genres }) => (
@@ -14,5 +15,12 @@ const SearchResult = ({ artwork, url, collection, genres }) => (
     </div>
   </div>
 );
+
+SearchResult.propTypes = {
+    artwork: T.string,
+    url: T.string,
+    collection: T.string,
+    genres: T.array
+};
 
 export default SearchResult;

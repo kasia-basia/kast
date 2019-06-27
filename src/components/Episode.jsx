@@ -1,4 +1,5 @@
 import React from "react";
+import T from "prop-types";
 import ReadMore from "./ReadMore";
 
 export const Episode = ({ changeEpisode, mp3, title, description }) => (
@@ -9,5 +10,12 @@ export const Episode = ({ changeEpisode, mp3, title, description }) => (
     <ReadMore text={description} />
   </div>
 );
+
+Episode.propTypes = {
+    changeEpisode: T.func,
+    mp3: T.string,
+    title: T.string,
+    description: T.string
+};
 
 export default Episode;

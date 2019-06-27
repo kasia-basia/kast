@@ -1,4 +1,5 @@
 import React from "react";
+import T from "prop-types";
 
 export const RecentEpisodes = ({ children }) => (
   <>
@@ -8,5 +9,9 @@ export const RecentEpisodes = ({ children }) => (
     <div className="podcast-episodes-container">{children}</div>
   </>
 );
+
+RecentEpisodes.propTypes = {
+    children: T.node
+};
 
 export default RecentEpisodes;
