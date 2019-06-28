@@ -1,16 +1,18 @@
-// MODULES
-@import "scss/modules/colors2";
-@import "scss/modules/loader";
-@import "scss/modules/notFound";
-@import "scss/modules/error";
+// GENERAL
+@import "scss/variables";
 
-// PARTIALS
-@import "scss/partials/main";
-@import "scss/partials/header";
-@import "scss/partials/searchres";
-@import "scss/partials/podcastPage";
-@import "scss/partials/home";
-@import "scss/partials/footer";
-@import "scss/partials/browseCategory";
-@import "scss/partials/readMore";
-@import "scss/partials/player";
+// COMPONENTS
+@import "scss/components/loader";
+@import "scss/components/notFound";
+@import "scss/components/error";
+@import "scss/components/main";
+@import "scss/components/header";
+@import "scss/components/searchres";
+@import "scss/components/podcastPage";
+@import "scss/components/home";
+@import "scss/components/footer";
+@import "scss/components/browseCategory";
+@import "scss/components/readMore";
+@import "scss/components/player";
+@import "scss/components/staffPicks";
+
