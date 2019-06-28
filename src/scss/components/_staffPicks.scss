@@ -1,27 +1,6 @@
-.home-container{
-  display: flex;
-  justify-content: center;
-  text-transform: uppercase;
-
-}
-
-.home-header{
-  margin-top: 1em;
-  color: $accent-dark;
-  span{
-    font-weight: lighter;
-  }
-}
-
-/// Staff picks
-
-
 .home-sp-heading{
-  //text-align: center;
   color: $accent-dark;
   margin-left: 15px;
-  //text-transform: uppercase;
-  //letter-spacing: 2px;
   font-weight: lighter;
 }
 

@@ -1,0 +1,13 @@
+.home-container{
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+.home-header{
+  margin-top: 1em;
+  color: $accent-dark;
+  span{
+    font-weight: lighter;
+  }
+}
