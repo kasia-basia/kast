@@ -7,6 +7,7 @@ import PodcastGeneralInfo from "./PodcastGeneralInfo";
 import Player from "./Player";
 import RecentEpisodes from "./RecentEpisodes";
 
+
 export default class PodcastPage extends React.Component {
   constructor(props) {
     super(props);
@@ -19,6 +20,7 @@ export default class PodcastPage extends React.Component {
       feedImg: "",
       currEpisodeUrl: "",
       currEpisodeTitle: "",
+      link: "",
       loaded: false,
       error: false
     };
@@ -51,7 +53,7 @@ export default class PodcastPage extends React.Component {
     }
 
     if (this.state.loaded) {
-      const { currEpisodeTitle, currEpisodeUrl, feedImg, feedTitle, feedAuthor, feedDescr } = this.state;
+      const { currEpisodeTitle, currEpisodeUrl, feedImg, feedTitle, feedAuthor, feedDescr, link } = this.state;
       return (
         <>
           <Player
@@ -64,6 +66,7 @@ export default class PodcastPage extends React.Component {
                 feedTitle={feedTitle}
                 feedAuthor={feedAuthor}
                 feedDescr={feedDescr}
+                link={link}
             />
             <RecentEpisodes>{episodes}</RecentEpisodes>
           </div>
@@ -81,6 +84,7 @@ export default class PodcastPage extends React.Component {
     axios
       .get(rss2JsonApi)
       .then(res => {
+        console.log(res);
         this.setState({
           episodes: res.data.items,
           feedDescr: res.data.feed.description,
@@ -89,7 +93,8 @@ export default class PodcastPage extends React.Component {
           feedImg: res.data.feed.image,
           currEpisodeUrl: res.data.items[0].enclosure.link,
           currEpisodeTitle: res.data.items[0].title,
-          loaded: true
+          loaded: true,
+          link: res.data.feed.link
         });
       })
 

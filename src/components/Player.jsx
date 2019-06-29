@@ -1,6 +1,7 @@
 import React from "react";
 import T from "prop-types";
 import FilePlayer from "react-player/lib/players/FilePlayer";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import Duration from "./Duration";
 
 export default class Player extends React.Component {
@@ -34,24 +35,28 @@ export default class Player extends React.Component {
 
   render() {
     const { playing, played } = this.state;
-    console.log(this.state);
     return (
-      <div className={"player-wrapper"}>
-        <div className={"container player"}>
-          <button onClick={this.onPlay}>{playing ? "Pause" : "Play"}</button>
-
-          <progress max={1} value={played} />
-          <span>{this.props.currEpisodeTitle}</span>
-          <FilePlayer
-            url={this.props.currEpisodeUrl}
-            progressInterval={1000}
-            playing={playing}
-            style={{ display: "none" }}
-            onProgress={this.onProgress}
-            onDuration={this.onDuration}
-          />
+        <div className={"player-wrapper"}>
+            <div className={"container player"}>
+                <div className={"player-controls"}>
+                    <button onClick={this.onPlay} className={"player-button"}>
+                        <FontAwesomeIcon style={{color: '#ffffff'}} icon={playing ? "play" : "pause"}/>
+                    </button>
+                    <progress max={1} value={played}/>
+                </div>
+                <div className={"player-episodeTitle"}>
+                    <span>{this.props.currEpisodeTitle}</span>
+                </div>
+                <FilePlayer
+                    url={this.props.currEpisodeUrl}
+                    progressInterval={1000}
+                    playing={playing}
+                    style={{display: "none"}}
+                    onProgress={this.onProgress}
+                    onDuration={this.onDuration}
+                />
+            </div>
         </div>
-      </div>
     );
   }
 }

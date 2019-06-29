@@ -11,6 +11,10 @@ import Home from './components/Home';
 import Footer from './components/Footer';
 import NotFound from "./components/NotFound";
 import ScrollToTop from './components/ScrollToTop';
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {faSearch, faPlay, faPause, faGlobeAmericas} from '@fortawesome/free-solid-svg-icons'
+
+library.add(faSearch, faPlay, faPause, faGlobeAmericas);
 
 // App Component
 class App extends Component {

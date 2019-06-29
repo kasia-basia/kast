@@ -34,15 +34,18 @@ export default class SearchResults extends React.Component {
 
     return (
       <div className={"container"}>
-        {this.props.match.url.includes("category") ? (
-          <h2 className={"searchRes-heading"}>
-            <span>{this.props.match.params.id.slice(0, -5)}</span>
-          </h2>
-        ) : (
-          <h2 className={"searchRes-heading"}>
-            <span>Search results</span> for "{this.props.match.params.query}"
-          </h2>
-        )}
+        {this.props.match.url.includes("category") 
+            ? (
+              <h2 className={"searchRes-heading"}>
+                <span>{this.props.match.params.id.slice(0, -5)}</span>
+              </h2>
+            ) 
+            : (
+              <h2 className={"searchRes-heading"}>
+                <span>Search results</span> for "{this.props.match.params.query}"
+              </h2>
+            )
+        }
         <div className={"searchRes-list"}>{allResults}</div>
       </div>
     );
